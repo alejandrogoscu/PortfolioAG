@@ -1,0 +1,7 @@
+.projects__container {
+  min-height: calc(100dvh - 60px);
+  padding: 20px;
+
+  background-color: var(--negro);
+  color: var(--blanco);
+}
