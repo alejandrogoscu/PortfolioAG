@@ -42,8 +42,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 90dvh;
-  padding: 2vh 0;
+  min-height: calc(100dvh - 60px);
+  padding: 0;
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
@@ -65,6 +65,9 @@
   gap: clamp(10px, 2vh, 20px);
   padding: 60px 10px;
   text-align: end;
+  margin: auto 0;
+  flex: 1;
+  justify-content: center;
 }
 
 .header__nav-item {
@@ -87,7 +90,7 @@
 .header__nav-link {
   padding-right: 10px;
   font-family: var(--font-title);
-  font-size: clamp(1.8em, 6vw, 4em);
+  font-size: clamp(3em, 6vw, 5em);
   display: block;
 
   &:hover {
@@ -97,14 +100,15 @@
 
 /* - - - - - -  FOOTER Styles - - - - - - */
 .header__footer {
-  width: 85%;
-  padding: 10px 30px;
-  margin-top: auto;
+  width: clamp(85%, 90vw, 95%); /* Ajuste dinámico del ancho */
+  padding: 20px clamp(15px, 3vw, 30px); /* Padding horizontal responsive */
+  margin-top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-italic);
   font-weight: 200;
+  font-size: clamp(0.8em, 2vw, 1.2em);
 }
 
 .header__footer-list {
@@ -114,8 +118,4 @@
   padding-inline-start: 0;
   align-items: center;
   gap: clamp(10px, 2vw, 20px);
-}
-
-.header__footer-link {
-  font-size: clamp(0.8em, 3vw, 1.2em);
 }
