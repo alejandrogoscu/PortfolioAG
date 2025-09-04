@@ -1,10 +1,19 @@
-/* - - - - - - - - - - - - - RESET CSS - - - - - - - - - - - - - */
+@import url('./assets/fonts/fonts.css');
 
+/* - - - - - - - - - - - - - RESET CSS - - - - - - - - - - - - - */
 :root {
   font-size: 16px;
+
+  /* Fonts */
   --font-title: 'ClashDisplay', system-ui, sans-serif;
   --font-text: 'Archivo', system-ui, sans-serif;
   --font-italic: 'ArchivoItalic', system-ui, sans-serif;
+
+  /* Colors */
+  --negro: #000;
+  --blanco: #fffef3;
+  --negrolow: #0007;
+  --blancolow: #fffee3;
 }
 
 /* Reseteamos los margin y padding de todas las etiquetas. */
@@ -26,6 +35,8 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--blancolow);
+  color: var(--negro);
 }
 
 /* Configuramos anclas suaves. */
@@ -110,8 +121,8 @@ iframe {
 
 /* Configuramos la barra de Scroll (Scrollbar app). */
 .projects__list {
-  --sb-track-color: #000000;
-  --sb-thumb-color: #fffee3;
+  --sb-track-color: var(--negro);
+  --sb-thumb-color: var(--blancolow);
   --sb-size: 3px;
 }
 

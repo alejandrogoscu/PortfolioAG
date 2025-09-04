@@ -1,0 +1,121 @@
+.header__menu {
+  padding: 20px 0;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* - - - - - -  HEADER BUTTON Styles - - - - - - */
+.header__button {
+  padding: 1px 20px;
+  display: inline-flex;
+  align-items: center;
+
+  font-family: var(--font-title);
+  font-size: 1.3em;
+  font-weight: 400;
+  position: relative;
+  transition: all 0.1s linear;
+
+  &:hover {
+    font-weight: 500;
+  }
+}
+
+/* Underline effect */
+.header__button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100px;
+  height: 2px;
+  background-color: var(--negro);
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/* - - - - - -  NAVIGATION Styles - - - - - - */
+.header__nav {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 90dvh;
+  padding: 2vh 0;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.header__nav-active {
+  display: flex;
+}
+
+.header__nav::-webkit-scrollbar {
+  display: none;
+}
+
+.header__nav-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 2vh, 20px);
+  padding: 60px 10px;
+  text-align: end;
+}
+
+.header__nav-item {
+  width: min(85%, 600px);
+  position: relative;
+}
+
+.header__nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--negro);
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.header__nav-link {
+  padding-right: 10px;
+  font-family: var(--font-title);
+  font-size: clamp(1.8em, 6vw, 4em);
+  display: block;
+
+  &:hover {
+    font-weight: 500;
+  }
+}
+
+/* - - - - - -  FOOTER Styles - - - - - - */
+.header__footer {
+  width: 85%;
+  padding: 10px 30px;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-italic);
+  font-weight: 200;
+}
+
+.header__footer-list {
+  display: flex;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  padding-inline-start: 0;
+  align-items: center;
+  gap: clamp(10px, 2vw, 20px);
+}
+
+.header__footer-link {
+  font-size: clamp(0.8em, 3vw, 1.2em);
+}
