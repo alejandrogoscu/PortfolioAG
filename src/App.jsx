@@ -1,11 +1,12 @@
 import Layout from './components/Layout';
-import Menu from './components/Menu';
+
 import './App.css';
+import Home from './components/Home';
 
 function App() {
   return (
     <Layout>
-      <Menu />
+      <Home />
     </Layout>
   );
 }

@@ -119,37 +119,27 @@ iframe {
   object-position: center center;
 }
 
-/* Configuramos la barra de Scroll (Scrollbar app). */
-.projects__list {
-  --sb-track-color: var(--negro);
-  --sb-thumb-color: var(--blancolow);
-  --sb-size: 3px;
+/* Estilizado de scrollbar para Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--negro) var(--blancolow);
 }
 
-.projects__list::-webkit-scrollbar {
-  width: var(--sb-size);
+/* Estilizado de scrollbar para Chrome, Safari y Edge */
+*::-webkit-scrollbar {
+  width: 8px;
 }
 
-.projects__list::-webkit-scrollbar-track {
-  background: var(--sb-track-color);
-  border-radius: 1px;
+*::-webkit-scrollbar-track {
+  background: var(--blancolow);
 }
 
-.projects__list::-webkit-scrollbar-thumb {
-  background: var(--sb-thumb-color);
-  border-radius: 1px;
+*::-webkit-scrollbar-thumb {
+  background-color: var(--negro);
+  border-radius: 4px;
+  border: 2px solid var(--blancolow);
 }
 
-.projects__list::-webkit-scrollbar-track-piece:start {
-  margin-top: 30px;
-}
-
-.projects__list::-webkit-scrollbar-track-piece:end {
-  margin-bottom: 30px;
-}
-
-@supports not selector(::-webkit-scrollbar) {
-  .projects__container {
-    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
-  }
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--negrolow);
 }

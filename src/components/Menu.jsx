@@ -8,6 +8,15 @@ const Menu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <>
       <header className={`header__menu ${isMenuOpen ? 'header__menu-active' : ''}`}>
@@ -19,25 +28,25 @@ const Menu = () => {
       <nav className={`header__nav ${isMenuOpen ? 'header__nav-active' : ''}`}>
         <ul className="header__nav-list">
           <li className="header__nav-item">
-            <a className="header__nav-link" href="#">
+            <a className="header__nav-link" href="#home" onClick={(e) => handleNavClick(e, 'home')}>
               Inicio
             </a>
           </li>
 
           <li className="header__nav-item">
-            <a className="header__nav-link" href="#">
+            <a className="header__nav-link" href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>
               Proyectos
             </a>
           </li>
 
           <li className="header__nav-item">
-            <a className="header__nav-link" href="#">
+            <a className="header__nav-link" href="#bio" onClick={(e) => handleNavClick(e, 'bio')}>
               Biografía
             </a>
           </li>
 
           <li className="header__nav-item">
-            <a className="header__nav-link" href="#">
+            <a className="header__nav-link" href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>
               Contacto
             </a>
           </li>
