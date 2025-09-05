@@ -5,3 +5,13 @@
   background-color: var(--negro);
   color: var(--blanco);
 }
+
+.projects__title {
+  padding-left: clamp(40px, 12vw, 140px);
+  margin-top: clamp(30px, 5vh, 60px);
+  margin-bottom: clamp(30px, 5vh, 60px);
+
+  font-family: var(--font-title);
+  font-size: clamp(2.5em, 6vw, 4em);
+  text-align: left;
+}
