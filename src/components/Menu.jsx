@@ -20,6 +20,18 @@ const Menu = ({ activeSection, sectionColor = { bg: 'var(--blancolow)', text: 'v
     }
   }, [sectionColor]);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -28,20 +40,39 @@ const Menu = ({ activeSection, sectionColor = { bg: 'var(--blancolow)', text: 'v
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
+
+      setTimeout(() => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset;
+        const offsetY = offsetPosition - 60;
+
+        window.scrollTo({
+          top: offsetY,
+          behavior: 'smooth',
+        });
+      }, 10);
     }
   };
 
   return (
     <>
       <header className={`header__menu ${isMenuOpen ? 'header__menu-active' : ''}`} style={menuStyle}>
-        <button className={`header__button ${isMenuOpen ? 'header__button-active' : ''}`} onClick={toggleMenu}>
+        <button
+          className={`header__button ${isMenuOpen ? 'header__button-active' : ''}`}
+          onClick={toggleMenu}
+          aria-expanded={isMenuOpen}
+          aria-controls="main-navigation"
+        >
           {isMenuOpen ? 'Cerrar' : 'Menu'}
         </button>
       </header>
 
-      <nav className={`header__nav ${isMenuOpen ? 'header__nav-active' : ''}`} style={navStyle}>
+      <nav
+        className={`header__nav ${isMenuOpen ? 'header__nav-active' : ''}`}
+        style={navStyle}
+        aria-hidden={!isMenuOpen}
+      >
         <ul className="header__nav-list">
           <li className="header__nav-item">
             <a className="header__nav-link" href="#home" onClick={(e) => handleNavClick(e, 'home')}>
