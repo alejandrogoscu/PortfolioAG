@@ -6,6 +6,8 @@
   align-items: center;
   gap: clamp(40px, 8vh, 90px);
   padding: 20px;
+
+  background-color: var(--blancolow);
 }
 
 .home__title {
