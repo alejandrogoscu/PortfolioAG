@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "title": "mercatGO",
+    "description": "Descubre los mercados municipales de Valencia con mercatGO y vive la autenticidad de su historia, sabores y tradición.",
+    "videoSrc": "mercatGOexampleAir.webm",
+    "technologies": [
+      {
+        "name": "HTML5",
+        "icon": "devicon-html5-plain-wordmark"
+      },
+      {
+        "name": "CSS3",
+        "icon": "devicon-css3-plain-wordmark"
+      },
+      {
+        "name": "React",
+        "icon": "devicon-react-original-wordmark"
+      },
+      {
+        "name": "Node.js",
+        "icon": "devicon-nodejs-plain-wordmark"
+      }
+    ],
+    "githubUrl": "https://github.com/alejandrogoscu/mercatGO",
+    "liveUrl": "https://mercatgo.vercel.app/"
+  }
+]

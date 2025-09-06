@@ -1,102 +1,18 @@
+import ProjectCard from './ProjectCard';
+import ProjectsData from '../data/projects.json';
 import '../styles/Projects.css';
 
 const Projects = () => {
   return (
     <>
-      <div className="projects__container" id="projects">
+      <section className="projects__section" id="projects">
         <h1 className="projects__title">Projects</h1>
-
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias sunt sapiente quasi, quibusdam ipsa.
-          Aperiam minus dolorum repudiandae consectetur quisquam qui, perspiciatis nobis doloremque tenetur voluptatem
-          in optio quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, labore? Necessitatibus officia
-          cum molestias alias fugiat repudiandae corporis ex, ullam beatae, vitae officiis magni cumque aliquam velit
-          commodi qui cupiditate. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, in placeat
-          similique, sunt consequatur illum ipsum libero facere dolores repellendus illo ad? Incidunt quaerat facere rem
-          facilis repellat praesentium quisquam?
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias sunt sapiente quasi, quibusdam ipsa.
-          Aperiam minus dolorum repudiandae consectetur quisquam qui, perspiciatis nobis doloremque tenetur voluptatem
-          in optio quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, labore? Necessitatibus officia
-          cum molestias alias fugiat repudiandae corporis ex, ullam beatae, vitae officiis magni cumque aliquam velit
-          commodi qui cupiditate. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, in placeat
-          similique, sunt consequatur illum ipsum libero facere dolores repellendus illo ad? Incidunt quaerat facere rem
-          facilis repellat praesentium quisquam?
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias sunt sapiente quasi, quibusdam ipsa.
-          Aperiam minus dolorum repudiandae consectetur quisquam qui, perspiciatis nobis doloremque tenetur voluptatem
-          in optio quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, labore? Necessitatibus officia
-          cum molestias alias fugiat repudiandae corporis ex, ullam beatae, vitae officiis magni cumque aliquam velit
-          commodi qui cupiditate. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, in placeat
-          similique, sunt consequatur illum ipsum libero facere dolores repellendus illo ad? Incidunt quaerat facere rem
-          facilis repellat praesentium quisquam?
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias sunt sapiente quasi, quibusdam ipsa.
-          Aperiam minus dolorum repudiandae consectetur quisquam qui, perspiciatis nobis doloremque tenetur voluptatem
-          in optio quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, labore? Necessitatibus officia
-          cum molestias alias fugiat repudiandae corporis ex, ullam beatae, vitae officiis magni cumque aliquam velit
-          commodi qui cupiditate. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, in placeat
-          similique, sunt consequatur illum ipsum libero facere dolores repellendus illo ad? Incidunt quaerat facere rem
-          facilis repellat praesentium quisquam?
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias sunt sapiente quasi, quibusdam ipsa.
-          Aperiam minus dolorum repudiandae consectetur quisquam qui, perspiciatis nobis doloremque tenetur voluptatem
-          in optio quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, labore? Necessitatibus officia
-          cum molestias alias fugiat repudiandae corporis ex, ullam beatae, vitae officiis magni cumque aliquam velit
-          commodi qui cupiditate. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, in placeat
-          similique, sunt consequatur illum ipsum libero facere dolores repellendus illo ad? Incidunt quaerat facere rem
-          facilis repellat praesentium quisquam?
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias sunt sapiente quasi, quibusdam ipsa.
-          Aperiam minus dolorum repudiandae consectetur quisquam qui, perspiciatis nobis doloremque tenetur voluptatem
-          in optio quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, labore? Necessitatibus officia
-          cum molestias alias fugiat repudiandae corporis ex, ullam beatae, vitae officiis magni cumque aliquam velit
-          commodi qui cupiditate. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, in placeat
-          similique, sunt consequatur illum ipsum libero facere dolores repellendus illo ad? Incidunt quaerat facere rem
-          facilis repellat praesentium quisquam?
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias sunt sapiente quasi, quibusdam ipsa.
-          Aperiam minus dolorum repudiandae consectetur quisquam qui, perspiciatis nobis doloremque tenetur voluptatem
-          in optio quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, labore? Necessitatibus officia
-          cum molestias alias fugiat repudiandae corporis ex, ullam beatae, vitae officiis magni cumque aliquam velit
-          commodi qui cupiditate. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, in placeat
-          similique, sunt consequatur illum ipsum libero facere dolores repellendus illo ad? Incidunt quaerat facere rem
-          facilis repellat praesentium quisquam?
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias sunt sapiente quasi, quibusdam ipsa.
-          Aperiam minus dolorum repudiandae consectetur quisquam qui, perspiciatis nobis doloremque tenetur voluptatem
-          in optio quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, labore? Necessitatibus officia
-          cum molestias alias fugiat repudiandae corporis ex, ullam beatae, vitae officiis magni cumque aliquam velit
-          commodi qui cupiditate. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, in placeat
-          similique, sunt consequatur illum ipsum libero facere dolores repellendus illo ad? Incidunt quaerat facere rem
-          facilis repellat praesentium quisquam?
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias sunt sapiente quasi, quibusdam ipsa.
-          Aperiam minus dolorum repudiandae consectetur quisquam qui, perspiciatis nobis doloremque tenetur voluptatem
-          in optio quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, labore? Necessitatibus officia
-          cum molestias alias fugiat repudiandae corporis ex, ullam beatae, vitae officiis magni cumque aliquam velit
-          commodi qui cupiditate. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, in placeat
-          similique, sunt consequatur illum ipsum libero facere dolores repellendus illo ad? Incidunt quaerat facere rem
-          facilis repellat praesentium quisquam?
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias sunt sapiente quasi, quibusdam ipsa.
-          Aperiam minus dolorum repudiandae consectetur quisquam qui, perspiciatis nobis doloremque tenetur voluptatem
-          in optio quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, labore? Necessitatibus officia
-          cum molestias alias fugiat repudiandae corporis ex, ullam beatae, vitae officiis magni cumque aliquam velit
-          commodi qui cupiditate. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, in placeat
-          similique, sunt consequatur illum ipsum libero facere dolores repellendus illo ad? Incidunt quaerat facere rem
-          facilis repellat praesentium quisquam?
-        </p>
-      </div>
+        <div className="projects__grid">
+          {ProjectsData.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </section>
     </>
   );
 };
