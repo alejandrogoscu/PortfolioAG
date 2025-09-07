@@ -51,7 +51,7 @@ const ProjectCard = ({ project }) => {
             GitHub
           </a>
           <a className="projectCard__link projectCard__live" href={project.liveUrl} target="_blank" rel="noreferrer">
-            Ver Proyecto
+            Visitar
           </a>
         </div>
       </div>

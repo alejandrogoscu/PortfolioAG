@@ -1,6 +1,6 @@
 .projectCard__container {
-  width: 400px;
-  margin: 5rem;
+  width: clamp(220px, 80vw, 400px);
+  margin: clamp(2rem, 5vw, 5rem);
   padding: 1.5rem;
   border-radius: 0 0 3px 3px;
   border-top: 2px solid var(--blanco);
@@ -17,7 +17,7 @@
 
 .projectCard__media {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
   border-radius: 3px;
   overflow: hidden;
 }
@@ -33,6 +33,7 @@
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
   color: var(--blanco);
+  text-align: end;
 }
 
 .projectCard__description {
@@ -41,7 +42,8 @@
   font-weight: 400;
   line-height: 1.5;
   color: var(--grisclaro);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.85rem;
+  text-align: justify;
 }
 
 .projectCard__technologies {
@@ -49,7 +51,7 @@
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.65rem;
 }
 
 .projectCard__tech {
@@ -70,32 +72,43 @@
 
 .projectCard__links {
   display: flex;
-  justify-content: space-around;
-  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 2.3rem;
 }
 
-@media screen and (max-width: 768px) {
-  .projectCard__container {
-    width: 100%;
-    max-width: 400px;
-  }
-}
+.projectCard__link {
+  position: relative;
+  padding: 0 2px;
+  font-weight: 200;
+  transition: font-weight 0.2s ease;
 
-@media screen and (max-width: 480px) {
-  .projectCard__container {
-    padding: 1.25rem;
-  }
-
-  .projectCard__media {
-    height: 180px;
-  }
-
-  .projectCard__links {
-    flex-direction: column;
-    gap: 0.75rem;
+  &::before {
+    content: attr(data-text);
+    display: block;
+    font-weight: 400;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
   }
 
-  .projectCard__link {
-    text-align: center;
+  &::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 0%;
+    height: 1px;
+    background-color: var(--blanco);
+    transform: translateX(-50%);
+    transition: width 0.2s ease;
+  }
+
+  &:hover {
+    font-weight: 400;
+  }
+
+  &:hover::after {
+    width: calc(110%);
   }
 }
