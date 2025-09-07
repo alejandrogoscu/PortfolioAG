@@ -67,8 +67,11 @@ const ProjectCard = ({ project }) => {
     if (hoveredTechs[index]) {
       if (icon.includes('plain-wordmark')) {
         return icon.replace('plain-wordmark', 'plain-wordmark colored');
-      } else if (icon.includes('original-wordmark'))
+      } else if (icon.includes('original-wordmark')) {
         return icon.replace('original-wordmark', 'original-wordmark colored');
+      } else if (icon.includes('plain')) {
+        return icon.replace('plain', 'plain colored');
+      }
     }
     return icon;
   };
@@ -76,28 +79,27 @@ const ProjectCard = ({ project }) => {
   return (
     <>
       <div className="projectCard__container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <a href={project.liveUrl} target="_blank" rel="noreferrer" className="projectCard__media-link">
-          <div className="projectCard__media">
-            {imageSrc && !isHovering && <img className="projectCard__image" src={imageSrc} alt={project.title} />}
+        <div className="projectCard__media">
+          {imageSrc && !isHovering && <img className="projectCard__image" src={imageSrc} alt={project.title} />}
 
-            {videoSrc && (
-              <video
-                className={`projectCard__video ${isHovering ? 'visible' : 'hidden'}`}
-                ref={videoRef}
-                muted
-                loop
-                preload="metadata"
-              >
-                <source src={videoSrc} type="video/webm" />
-                This browser doesn't support WebM playback
-              </video>
-            )}
-          </div>
-        </a>
+          {videoSrc && (
+            <video
+              className={`projectCard__video ${isHovering ? 'visible' : 'hidden'}`}
+              ref={videoRef}
+              muted
+              loop
+              preload="metadata"
+            >
+              <source src={videoSrc} type="video/webm" />
+              This browser doesn't support WebM playback
+            </video>
+          )}
+        </div>
 
         <a href={project.liveUrl} target="_blank" rel="noreferrer" className="projectCard__title-link">
           <h2 className="projectCard__title">{project.title}</h2>
         </a>
+
         <p className="projectCard__description">{project.description}</p>
 
         <div className="projectCard__technologies">
