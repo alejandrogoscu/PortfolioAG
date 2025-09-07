@@ -5,6 +5,7 @@ const ProjectCard = ({ project }) => {
   const [videoSrc, setVideoSrc] = useState(null);
   const [imageSrc, setImageSrc] = useState(null);
   const [isHovering, setIsHovereing] = useState(false);
+  const [hoveredTechs, setHoveredTechs] = useState({});
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -54,6 +55,24 @@ const ProjectCard = ({ project }) => {
     setIsHovereing(false);
   };
 
+  const handleTechMouseEnter = (index) => {
+    setHoveredTechs((prevs) => ({ ...prevs, [index]: true }));
+  };
+
+  const handleTechMouseLeave = (index) => {
+    setHoveredTechs((prevs) => ({ ...prevs, [index]: false }));
+  };
+
+  const getIconClass = (icon, index) => {
+    if (hoveredTechs[index]) {
+      if (icon.includes('plain-wordmark')) {
+        return icon.replace('plain-wordmark', 'plain-wordmark colored');
+      } else if (icon.includes('original-wordmark'))
+        return icon.replace('original-wordmark', 'original-wordmark colored');
+    }
+    return icon;
+  };
+
   return (
     <>
       <div className="projectCard__container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -83,8 +102,13 @@ const ProjectCard = ({ project }) => {
 
         <div className="projectCard__technologies">
           {project.technologies.map((tech, index) => (
-            <div className="projectCard__tech" key={index}>
-              <i className={tech.icon}></i>
+            <div
+              className="projectCard__tech"
+              key={index}
+              onMouseEnter={() => handleTechMouseEnter(index)}
+              onMouseLeave={() => handleTechMouseLeave(index)}
+            >
+              <i className={getIconClass(tech.icon, index)}></i>
             </div>
           ))}
         </div>
