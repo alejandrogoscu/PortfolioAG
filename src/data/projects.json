@@ -4,6 +4,7 @@
     "title": "mercatGO",
     "description": "Descubre los mercados municipales de Valencia con mercatGO y vive la autenticidad de su historia, sabores y tradición.",
     "videoSrc": "mercatGOexampleAir.webm",
+    "imageSrc": "mercatGOimg.webp",
     "technologies": [
       {
         "name": "HTML5",

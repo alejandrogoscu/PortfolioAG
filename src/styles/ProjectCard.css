@@ -20,6 +20,27 @@
   margin-bottom: 0.7rem;
   border-radius: 3px;
   overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 60%, rgba(0, 0, 0, 0.35) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.projectCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.05);
+  transition: filter 0.3s ease;
 }
 
 .projectCard__video {
@@ -28,12 +49,25 @@
   object-fit: contain;
 }
 
+.projectCard__video.visible {
+  display: block;
+}
+
+.projectCard__video.hidden {
+  display: none;
+}
+
 .projectCard__title {
   font-family: var(--title);
   font-size: 1.5rem;
-  margin-bottom: 0.75rem;
+  font-weight: 200;
+  margin-bottom: 1rem;
   color: var(--blanco);
   text-align: end;
+
+  &:hover {
+    font-weight: 400;
+  }
 }
 
 .projectCard__description {

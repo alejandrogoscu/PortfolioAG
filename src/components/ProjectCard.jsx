@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../styles/ProjectCard.css';
 
 const ProjectCard = ({ project }) => {
   const [videoSrc, setVideoSrc] = useState(null);
+  const [imageSrc, setImageSrc] = useState(null);
+  const [isHovering, setIsHovereing] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     if (project.videoSrc) {
@@ -18,19 +21,64 @@ const ProjectCard = ({ project }) => {
     }
   }, [project.videoSrc]);
 
+  useEffect(() => {
+    if (project.imageSrc) {
+      const loadImage = async () => {
+        try {
+          const imageModule = await import(`../assets/images/${project.imageSrc}`);
+          setImageSrc(imageModule.default);
+        } catch (error) {
+          console.error(`Error loading image: ${project.imageSrc}`, error);
+        }
+      };
+      loadImage();
+    }
+  }, [project.imageSrc]);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isHovering) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+      }
+    }
+  }, [isHovering]);
+
+  const handleMouseEnter = () => {
+    setIsHovereing(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovereing(false);
+  };
+
   return (
     <>
-      <div className="projectCard__container">
-        <div className="projectCard__media">
-          {videoSrc && (
-            <video className="projectCard__video" muted loop autoPlay preload="metadata">
-              <source src={videoSrc} type="video/webm" />
-              This browser doesn't support WebM playback
-            </video>
-          )}
-        </div>
+      <div className="projectCard__container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <a href={project.liveUrl} target="_blank" rel="noreferrer" className="projectCard__media-link">
+          <div className="projectCard__media">
+            {imageSrc && !isHovering && <img className="projectCard__image" src={imageSrc} alt={project.title} />}
 
-        <h2 className="projectCard__title">{project.title}</h2>
+            {videoSrc && (
+              <video
+                className={`projectCard__video ${isHovering ? 'visible' : 'hidden'}`}
+                ref={videoRef}
+                muted
+                loop
+                preload="metadata"
+              >
+                <source src={videoSrc} type="video/webm" />
+                This browser doesn't support WebM playback
+              </video>
+            )}
+          </div>
+        </a>
+
+        <a href={project.liveUrl} target="_blank" rel="noreferrer" className="projectCard__title-link">
+          <h2 className="projectCard__title">{project.title}</h2>
+        </a>
         <p className="projectCard__description">{project.description}</p>
 
         <div className="projectCard__technologies">
