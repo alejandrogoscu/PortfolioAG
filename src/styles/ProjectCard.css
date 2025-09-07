@@ -1,8 +1,8 @@
 .projectCard__container {
-  width: clamp(220px, 80vw, 400px);
-  margin: clamp(2rem, 5vw, 5rem);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
   padding: 1.5rem;
-  border-radius: 0 0 3px 3px;
   border-top: 2px solid var(--blanco);
   background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -12,7 +12,6 @@
 
 .projectCard__container:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .projectCard__media {
