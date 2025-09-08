@@ -45,7 +45,7 @@ const Menu = ({ activeSection, sectionColor = { bg: 'var(--blancolow)', text: 'v
       setTimeout(() => {
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset;
-        const offsetY = offsetPosition - 60;
+        const offsetY = id === 'home' ? offsetPosition - 60 : offsetPosition;
 
         window.scrollTo({
           top: offsetY,
@@ -87,7 +87,7 @@ const Menu = ({ activeSection, sectionColor = { bg: 'var(--blancolow)', text: 'v
           </li>
 
           <li className="header__nav-item">
-            <a className="header__nav-link" href="#bio" onClick={(e) => handleNavClick(e, 'bio')}>
+            <a className="header__nav-link" href="#bio" onClick={(e) => handleNavClick(e, 'about')}>
               Biografía
             </a>
           </li>
