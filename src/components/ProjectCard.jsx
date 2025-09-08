@@ -12,7 +12,7 @@ const ProjectCard = ({ project }) => {
     if (project.videoSrc) {
       const loadVideo = async () => {
         try {
-          const videoModule = await import(`../assets/videos/${project.videoSrc}`);
+          const videoModule = await import(/* @vite-ignore */ `../assets/videos/${project.videoSrc}`);
           setVideoSrc(videoModule.default);
         } catch (error) {
           console.error(`Error loading video: ${project.videoSrc}`, error);
@@ -26,7 +26,7 @@ const ProjectCard = ({ project }) => {
     if (project.imageSrc) {
       const loadImage = async () => {
         try {
-          const imageModule = await import(`../assets/images/${project.imageSrc}`);
+          const imageModule = await import(/* @vite-ignore */ `../assets/images/${project.imageSrc}`);
           setImageSrc(imageModule.default);
         } catch (error) {
           console.error(`Error loading image: ${project.imageSrc}`, error);

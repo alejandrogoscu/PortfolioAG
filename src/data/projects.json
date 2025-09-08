@@ -29,41 +29,5 @@
     ],
     "githubUrl": "https://github.com/alejandrogoscu/mercatGO",
     "liveUrl": "https://mercatgo.vercel.app/"
-  },
-
-  {
-    "id": 2,
-    "title": "Chewbooka",
-    "description": "Explora. Conecta. Postea desde cualquier rincón del hiperespacio",
-    "videoSrc": "mercatGOexampleAir.webm",
-    "imageSrc": "Chewbookaimg.webp",
-    "technologies": [
-      {
-        "name": "HTML5",
-        "icon": "devicon-html5-plain-wordmark"
-      },
-      {
-        "name": "CSS3",
-        "icon": "devicon-css3-plain-wordmark"
-      },
-      {
-        "name": "JavaScript",
-        "icon": "devicon-javascript-plain"
-      },
-      {
-        "name": "React",
-        "icon": "devicon-react-original-wordmark"
-      },
-      {
-        "name": "Node.js",
-        "icon": "devicon-nodejs-plain-wordmark"
-      },
-      {
-        "name": "MongoDB",
-        "icon": "devicon-mongodb-plain-wordmark"
-      }
-    ],
-    "githubUrl": "https://github.com/alejandrogoscu/mercatGO",
-    "liveUrl": "https://mercatgo.vercel.app/"
   }
 ]
