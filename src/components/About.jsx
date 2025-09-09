@@ -7,7 +7,7 @@ const About = () => {
       <section className="about__section" id="about">
         <h1 className="about__title">Biografía</h1>
 
-        <div className="about__grid">
+        <div className="about__container">
           <div className="about__grid">
             <div className="about__bio">
               <p className="about__text">
@@ -19,6 +19,8 @@ const About = () => {
             <div className="about__image-container">
               <img className="about__image" src={fotoCV} alt="alejandrogoscu mirando a cámara con una gran sonrisa." />
             </div>
+
+            <div className="about__separator"></div>
 
             <div className="about__skills">
               <p className="about__text">

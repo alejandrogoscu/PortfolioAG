@@ -71,7 +71,7 @@ const Menu = ({ activeSection, sectionColor = { bg: 'var(--blancolow)', text: 'v
       <nav
         className={`header__nav ${isMenuOpen ? 'header__nav-active' : ''}`}
         style={navStyle}
-        aria-hidden={!isMenuOpen}
+        inert={isMenuOpen ? undefined : true}
       >
         <ul className="header__nav-list">
           <li className="header__nav-item">
