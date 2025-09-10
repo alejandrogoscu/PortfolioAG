@@ -11,8 +11,9 @@ const About = () => {
           <div className="about__grid">
             <div className="about__bio">
               <p className="about__text">
-                Profesional con más de 12 años de experiencia en la creación y gestión de proyectos audiovisuales ahora
-                especializado en desarrollo Full Stack.
+                ¡Hola! Soy <strong>Alejandro Goscu</strong>, profesional con más de 12 años de experiencia en la
+                creación y gestión de proyectos audiovisuales ahora especializado en{' '}
+                <strong>desarrollo Full Stack</strong>.
               </p>
             </div>
 
@@ -24,16 +25,24 @@ const About = () => {
 
             <div className="about__skills">
               <p className="about__text">
-                Trabajar en estos proyectos me ha enseñado a combinar estética, precisión y cohesión narrativa.
-                Habilidades que aplico al diseño y desarrollo web, creando experiencias digitales que integran
-                funcionalidad y creatividad.
+                Trabajar en proyectos audiovisuales me ha enseñado a{' '}
+                <strong>combinar estética, precisión y cohesión narrativa</strong>. Habilidades que aplico al diseño y
+                desarrollo web, creando <strong>experiencias digitales que integran funcionalidad y creatividad</strong>
+                .
               </p>
 
               <p className="about__text">
-                Experto en la coordinación de equipos multidisciplinares, gestión de feedback de diversos perfiles y
-                optimización de flujos de trabajo. Destaco por mi pensamiento lógico, resolución de problemas y
-                habilidad para traducir ideas complejas en soluciones funcionales y atractivas, orientadas siempre al
-                usuario final.
+                Experto en la{' '}
+                <strong>
+                  coordinación de equipos multidisciplinares, gestión de feedback de diversos perfiles y optimización de
+                  flujos de trabajo
+                </strong>
+                . Destaco por mi{' '}
+                <strong>
+                  pensamiento lógico, resolución de problemas y habilidad para traducir ideas complejas en soluciones
+                  funcionales y atractivas
+                </strong>
+                , orientadas siempre al usuario final.
               </p>
             </div>
           </div>

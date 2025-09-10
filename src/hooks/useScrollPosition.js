@@ -9,7 +9,7 @@ export const useScrollPosition = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'bio', 'contact'];
+      const sections = ['home', 'projects', 'about', 'contact'];
 
       for (const sectionId of sections) {
         const section = document.getElementById(sectionId);
