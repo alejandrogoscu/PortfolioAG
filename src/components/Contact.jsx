@@ -17,7 +17,11 @@ const Contact = () => {
     message: '',
   });
 
-  const [contactRef, isVisible] = useIntersectionObserver({
+  const [titleRef, isTitleVisible] = useIntersectionObserver({
+    threshold: 0.2,
+  });
+
+  const [formRef, isFormVisible] = useIntersectionObserver({
     threshold: 0.2,
   });
 
@@ -70,12 +74,14 @@ const Contact = () => {
   return (
     <>
       <section className="contact__section" id="contact">
-        <h1 className="contact__title">Contacto</h1>
+        <h1 className={`contact__title ${isTitleVisible ? 'contact__title--visible' : ''}`} ref={titleRef}>
+          Contacto
+        </h1>
 
         <main className="contact__container">
           <form
-            className={`contact__form ${isVisible ? 'contact__form--visible' : ''}`}
-            ref={contactRef}
+            className={`contact__form ${isFormVisible ? 'contact__form--visible' : ''}`}
+            ref={formRef}
             onSubmit={handleSubmit}
           >
             <label className="contact__label contact__subject">
