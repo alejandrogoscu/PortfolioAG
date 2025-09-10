@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useIntersectionObserver from '../hooks/useIntersectionObserver';
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -7,6 +8,10 @@ const Contact = () => {
     name: '',
     email: '',
     message: '',
+  });
+
+  const [contactRef, isVisible] = useIntersectionObserver({
+    threshold: 0.2,
   });
 
   const handleChange = (e) => {
@@ -29,7 +34,11 @@ const Contact = () => {
         <h1 className="contact__title">Contacto</h1>
 
         <main className="contact__container">
-          <form className="contact__form" onSubmit={handleSubmit}>
+          <form
+            className={`contact__form ${isVisible ? 'contact__form--visible' : ''}`}
+            ref={contactRef}
+            onSubmit={handleSubmit}
+          >
             <label className="contact__label contact__subject">
               <input
                 type="text"
