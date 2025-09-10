@@ -10,6 +10,13 @@ const Contact = () => {
     message: '',
   });
 
+  const [status, setStatus] = useState({
+    submitting: false,
+    submitted: false,
+    error: false,
+    message: '',
+  });
+
   const [contactRef, isVisible] = useIntersectionObserver({
     threshold: 0.2,
   });
@@ -22,10 +29,42 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Formulario enviado:', FormData);
-    setFormData({ subject: '', name: '', email: '', message: '' });
+    setStatus({ submitting: true, submitted: false, error: false, message: '' });
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Ocurrió un error al enviar el mensaje');
+      }
+
+      setStatus({
+        submitting: false,
+        submitted: true,
+        error: false,
+        message: '¡Mensaje enviado correctamente!',
+      });
+
+      setFormData({ subject: '', name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error to send form', error);
+      setStatus({
+        submitting: false,
+        submitted: true,
+        error: true,
+        message: error.message || 'Ocurrió un error al enviar el mensaje',
+      });
+    }
   };
 
   return (
@@ -47,6 +86,7 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="Asunto"
                 required
+                disabled={status.submitting}
               />
             </label>
 
@@ -58,6 +98,7 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="John Doe"
                 required
+                disabled={status.submitting}
               />
             </label>
 
@@ -69,6 +110,7 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="johndoe@mail.com"
                 required
+                disabled={status.submitting}
               />
             </label>
 
@@ -80,11 +122,24 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="Cuéntame..."
                 required
+                disabled={status.submitting}
               />
             </label>
-            <button className="contact__button" type="submit">
-              Enviar
-            </button>
+
+            <div className="contact__button-container">
+              {status.submitted && (
+                <div
+                  className={`contact__notification ${
+                    status.error ? 'contact__notification--error' : 'contact__notification--success'
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
+              <button className="contact__button" type="submit" disabled={status.submitting}>
+                {status.submitting ? 'Enviando...' : 'Enviar'}
+              </button>
+            </div>
           </form>
         </main>
       </section>

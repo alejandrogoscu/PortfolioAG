@@ -11,7 +11,7 @@
 .contact__title {
   padding-left: clamp(40px, 12vw, 140px);
   margin-top: clamp(30px, 5vh, 60px);
-  margin-bottom: clamp(30px, 5vh, 60px);
+  margin-bottom: clamp(80px, 5vh, 60px);
 
   font-size: clamp(2.5em, 6vw, 4em);
   text-align: left;
@@ -38,7 +38,7 @@
     'name name'
     'email email'
     'message message'
-    'button button';
+    'button-container button-container';
   gap: 30px;
 
   opacity: 0;
@@ -64,13 +64,23 @@
 .contact__message {
   grid-area: message;
   border-bottom: 2px solid var(--negrolow);
+  margin-bottom: 3.6rem;
+}
+
+.contact__button-container {
+  grid-area: button-container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .contact__button {
-  grid-area: button;
   position: relative;
-  margin-top: 6rem;
   padding: 3px 15px;
+  margin-top: 20px;
   justify-content: center;
   align-items: center;
   justify-self: center;
@@ -170,6 +180,33 @@
   from {
     opacity: 0;
     transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact__notification {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.contact__notification--sucess,
+.contact__notification--error {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
