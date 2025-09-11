@@ -172,13 +172,13 @@
   }
 
   .about__title {
-    padding-right: 20%; /* Aumentamos el padding en pantallas medianas */
+    padding-right: 20%;
   }
 }
 
 @media (min-width: 1200px) {
   .about__title {
-    padding-right: 22%; /* Aumentamos aún más el padding en pantallas grandes */
+    padding-right: 22%;
   }
 }
 

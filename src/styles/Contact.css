@@ -51,11 +51,11 @@
   gap: 30px;
 
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateY(50px);
 }
 
 .contact__form--visible {
-  animation: show-contact 1s ease forwards;
+  animation: show-contact-content 1s ease forwards;
 }
 
 .contact__subject {
@@ -226,10 +226,10 @@
   }
 }
 
-@keyframes show-contact {
+@keyframes show-contact-content {
   from {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
