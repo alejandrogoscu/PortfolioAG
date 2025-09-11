@@ -9,7 +9,9 @@
 }
 
 .about__title {
-  padding-right: clamp(20px, 5vw, 40px);
+  width: 100%;
+  padding-right: 10%;
+
   margin-top: clamp(30px, 5vh, 60px);
   margin-bottom: clamp(80px, 5vh, 60px);
 
@@ -18,12 +20,10 @@
 
   opacity: 0;
   transform: translateX(50px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .about__title--visible {
-  opacity: 1;
-  transform: translateX(0);
+  animation: show-about-title 0.5s ease forwards;
 }
 
 .about__container {
@@ -48,13 +48,13 @@
   align-items: center;
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.about__bio--visible,
+.about__bio--visible {
+  animation: show-about-content 0.7s ease forwards;
+}
 .about__image-container--visible {
-  opacity: 1;
-  transform: translateY(0);
+  animation: show-about-content 0.7s ease forwards 0.1s;
 }
 
 .about__image-container {
@@ -115,13 +115,10 @@
 
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  transition-delay: 0.2s;
 }
 
 .about__skills--visible {
-  opacity: 1;
-  transform: translateY(0);
+  animation: show-about-content 0.7s ease forwards 0.2s;
 }
 
 .about__text {
@@ -145,21 +142,18 @@
 
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  transition-delay: 0.1s;
 }
 
 .about__cv-download--visible {
-  opacity: 1;
-  transform: translateY(0);
+  animation: show-about-content 0.7s ease forwards 0.1s;
 }
 
 .about__download-button {
-  background-color: var(--blanco);
+  background-color: var(--blancolow);
   color: var(--negro);
   padding: 10px 20px;
   border-radius: 2px;
-  border: 2px solid var(--blanco);
+  border: 2px solid var(--blancolow);
 
   &:hover {
     background-color: var(--negro);
@@ -167,6 +161,7 @@
   }
 }
 
+/* ------ MEDIA QUERIES ------ */
 @media (min-width: 768px) {
   .about__grid {
     width: 70%;
@@ -177,12 +172,35 @@
   }
 
   .about__title {
-    padding-right: clamp(80px, 15vw, 200px);
+    padding-right: 20%; /* Aumentamos el padding en pantallas medianas */
   }
 }
 
 @media (min-width: 1200px) {
   .about__title {
-    padding-right: clamp(120px, 20vw, 300px);
+    padding-right: 22%; /* Aumentamos aún más el padding en pantallas grandes */
+  }
+}
+
+/* ------ ANIMATIONS ------ */
+@keyframes show-about-title {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes show-about-content {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

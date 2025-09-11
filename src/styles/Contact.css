@@ -9,7 +9,9 @@
 }
 
 .contact__title {
-  padding-left: clamp(40px, 12vw, 140px);
+  width: 100%;
+  padding-left: 10%;
+
   margin-top: clamp(30px, 5vh, 60px);
   margin-bottom: clamp(80px, 5vh, 60px);
 
@@ -199,6 +201,20 @@
   color: var(--blanco);
 }
 
+/* ------ MEDIA QUERIES ------ */
+@media (min-width: 768px) {
+  .contact__title {
+    padding-left: 20%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contact__title {
+    padding-left: 22%;
+  }
+}
+
+/* ------ ANIMATIONS ------ */
 @keyframes show-title {
   from {
     opacity: 0;
