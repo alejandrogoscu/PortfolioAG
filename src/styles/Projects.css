@@ -1,7 +1,7 @@
 .projects__section {
   min-height: 100dvh;
-  padding: 20px;
 
+  padding: 40px 20px;
   background-color: var(--negro);
   color: var(--blanco);
 }
@@ -60,6 +60,12 @@
 @media (min-width: 1200px) {
   .projects__title {
     padding-left: 22%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .projects__title {
+    padding-left: 32%;
   }
 }
 

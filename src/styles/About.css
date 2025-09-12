@@ -182,6 +182,12 @@
   }
 }
 
+@media (min-width: 1500px) {
+  .projects__title {
+    padding-right: 32%;
+  }
+}
+
 /* ------ ANIMATIONS ------ */
 @keyframes show-about-title {
   from {
