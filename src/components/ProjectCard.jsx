@@ -2,44 +2,17 @@ import { useState, useEffect, useRef } from 'react';
 import '../styles/ProjectCard.css';
 
 const ProjectCard = ({ project }) => {
-  const [videoSrc, setVideoSrc] = useState(null);
-  const [imageSrc, setImageSrc] = useState(null);
   const [isHovering, setIsHovereing] = useState(false);
   const [hoveredTechs, setHoveredTechs] = useState({});
   const videoRef = useRef(null);
 
-  useEffect(() => {
-    if (project.videoSrc) {
-      const loadVideo = async () => {
-        try {
-          const videoModule = await import(/* @vite-ignore */ `../assets/videos/${project.videoSrc}`);
-          setVideoSrc(videoModule.default);
-        } catch (error) {
-          console.error(`Error loading video: ${project.videoSrc}`, error);
-        }
-      };
-      loadVideo();
-    }
-  }, [project.videoSrc]);
-
-  useEffect(() => {
-    if (project.imageSrc) {
-      const loadImage = async () => {
-        try {
-          const imageModule = await import(/* @vite-ignore */ `../assets/images/${project.imageSrc}`);
-          setImageSrc(imageModule.default);
-        } catch (error) {
-          console.error(`Error loading image: ${project.imageSrc}`, error);
-        }
-      };
-      loadImage();
-    }
-  }, [project.imageSrc]);
+  const videoSrc = project.videoSrc ? `/videos/${project.videoSrc}` : null;
+  const imageSrc = project.imageSrc ? `/images/${project.imageSrc}` : null;
 
   useEffect(() => {
     if (videoRef.current) {
       if (isHovering) {
-        videoRef.current.play();
+        videoRef.current.play().catch((err) => console.error('Video error:', err));
       } else {
         videoRef.current.pause();
         videoRef.current.currentTime = 0;
