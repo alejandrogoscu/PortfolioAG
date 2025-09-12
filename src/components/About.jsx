@@ -1,4 +1,4 @@
-import fotoCV from '../assets/images/fotoCV.webp';
+import fotoCV from '/images/fotoCV.webp';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
 import '../styles/About.css';
 
