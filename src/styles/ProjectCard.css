@@ -1,6 +1,6 @@
 .projectCard__container {
   width: 100%;
-  max-width: 400px;
+  max-width: 330px;
   margin: 0 auto;
   padding: 1.5rem;
   border-top: 2px solid var(--blanco);
@@ -80,6 +80,8 @@
 }
 
 .projectCard__technologies {
+  width: 75%;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -114,8 +116,7 @@
 .projectCard__links {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2.3rem;
+  justify-content: space-around;
 }
 
 .projectCard__link {

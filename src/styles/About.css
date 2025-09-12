@@ -176,12 +176,6 @@
   }
 }
 
-@media (min-width: 1200px) {
-  .about__title {
-    padding-right: 22%;
-  }
-}
-
 @media (min-width: 1500px) {
   .projects__title {
     padding-right: 32%;
