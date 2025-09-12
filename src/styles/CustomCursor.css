@@ -1,0 +1,37 @@
+body,
+a,
+button,
+input,
+i,
+textarea,
+select,
+[role='button'],
+label {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 33px;
+  height: 33px;
+
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+
+  mix-blend-mode: difference;
+  background-color: var(--blancolow);
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.custom-cursor.hover {
+  width: 60px;
+  height: 60px;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.over-media {
+  mix-blend-mode: normal;
+  background-color: rgba(255, 255, 255, 0.3);
+}

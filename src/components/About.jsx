@@ -34,9 +34,9 @@ const About = () => {
           <div className="about__grid">
             <div className={`about__bio ${isBioVisible ? 'about__bio--visible' : ''}`} ref={bioRef}>
               <p className="about__text">
-                ¡Hola! Soy <strong>Alejandro Goscu</strong>, profesional con más de 12 años de experiencia en la
-                creación y gestión de proyectos audiovisuales ahora especializado en{' '}
-                <strong>desarrollo Full Stack</strong>.
+                ¡Hola! Soy <strong>Alejandro Goscu</strong>. Me he iniciado en el mundo del desarrollo como{' '}
+                <strong>Full Stack Developer</strong>, después de más de 12 años de experiencia en la creación y gestión
+                de proyectos audiovisuales.
               </p>
             </div>
 
