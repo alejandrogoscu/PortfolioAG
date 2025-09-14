@@ -16,7 +16,7 @@ const Projects = () => {
     <>
       <section className="projects__section" id="projects">
         <h1 className={`projects__title ${isTitleVisible ? 'projects__title--visible' : ''}`} ref={titleRef}>
-          Projectos
+          Proyectos
         </h1>
         <div className={`projects__grid ${isGridVisible ? 'projects__grid--visible' : ''}`} ref={gridRef}>
           {ProjectsData.map((project) => (
