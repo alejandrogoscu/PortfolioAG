@@ -5,53 +5,67 @@ const CustomCursor = () => {
   const cursorRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isOverMedia, setIsOverMedia] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-
-    const updateCursorPosition = (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
+    const checkIfTouchDevice = () => {
+      const isTouchCapable = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+      setIsTouchDevice(isTouchCapable);
     };
 
-    const handleMouseLeave = () => {
-      cursor.style.opacity = '0';
-    };
-    const handleMouseEnter = () => {
-      cursor.style.opacity = '1';
-    };
+    checkIfTouchDevice();
 
-    document.addEventListener('mousemove', updateCursorPosition);
-    document.addEventListener('mouseout', handleMouseLeave);
-    document.addEventListener('mouseover', handleMouseEnter);
+    if (!isTouchDevice) {
+      const cursor = cursorRef.current;
 
-    const addHoverListeners = () => {
-      const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, [role="button"]');
-      const mediaElements = document.querySelectorAll('img, video, i, .projectCard__tech');
+      const updateCursorPosition = (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      };
 
-      interactiveElements.forEach((el) => {
-        el.addEventListener('mouseenter', () => setIsHovering(true));
-        el.addEventListener('mouseleave', () => setIsHovering(false));
-      });
+      const handleMouseLeave = () => {
+        cursor.style.opacity = '0';
+      };
+      const handleMouseEnter = () => {
+        cursor.style.opacity = '1';
+      };
 
-      mediaElements.forEach((el) => {
-        el.addEventListener('mouseenter', () => setIsOverMedia(true));
-        el.addEventListener('mouseleave', () => setIsOverMedia(false));
-      });
-    };
+      const addHoverListeners = () => {
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, [role="button"]');
+        const mediaElements = document.querySelectorAll('img, video, i, .projectCard__tech');
 
-    addHoverListeners();
+        interactiveElements.forEach((el) => {
+          el.addEventListener('mouseenter', () => setIsHovering(true));
+          el.addEventListener('mouseleave', () => setIsHovering(false));
+        });
 
-    const observer = new MutationObserver(addHoverListeners);
-    observer.observe(document.body, { childList: true, subtree: true });
+        mediaElements.forEach((el) => {
+          el.addEventListener('mouseenter', () => setIsOverMedia(true));
+          el.addEventListener('mouseleave', () => setIsOverMedia(false));
+        });
+      };
 
-    return () => {
-      document.removeEventListener('mousemove', updateCursorPosition);
-      document.removeEventListener('mouseout', handleMouseLeave);
-      document.removeEventListener('mouseover', handleMouseEnter);
-      observer.disconnect();
-    };
-  }, []);
+      document.addEventListener('mousemove', updateCursorPosition);
+      document.addEventListener('mouseout', handleMouseLeave);
+      document.addEventListener('mouseover', handleMouseEnter);
+
+      addHoverListeners();
+
+      const observer = new MutationObserver(addHoverListeners);
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      return () => {
+        document.removeEventListener('mousemove', updateCursorPosition);
+        document.removeEventListener('mouseout', handleMouseLeave);
+        document.removeEventListener('mouseover', handleMouseEnter);
+        observer.disconnect();
+      };
+    }
+  }, [isTouchDevice]);
+
+  if (isTouchDevice) {
+    return null;
+  }
 
   return (
     <div ref={cursorRef} className={`custom-cursor ${isHovering ? 'hover' : ''} ${isOverMedia ? 'over-media' : ''}`} />
