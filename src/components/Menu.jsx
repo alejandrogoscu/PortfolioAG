@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import '../styles/Menu.css';
 
+const ANIMATION_OUT_DURATION = 300;
+
 const Menu = ({ activeSection, sectionColor = { bg: 'var(--blancolow)', text: 'var(--negro)' } }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAnimatingOut, setIsAnimatingOut] = useState(false);
   const [menuStyle, setMenuStyle] = useState({});
   const [navStyle, setNavStyle] = useState({});
 
@@ -21,39 +24,47 @@ const Menu = ({ activeSection, sectionColor = { bg: 'var(--blancolow)', text: 'v
   }, [sectionColor]);
 
   useEffect(() => {
-    if (isMenuOpen) {
+    if (isMenuOpen || isAnimatingOut) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isAnimatingOut]);
+
+  // Cerrar menú con animación
+  const closeMenuWithAnimation = (callback) => {
+    setIsAnimatingOut(true);
+    setTimeout(() => {
+      setIsMenuOpen(false);
+      setIsAnimatingOut(false);
+      if (callback) callback();
+    }, ANIMATION_OUT_DURATION);
+  };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    if (isMenuOpen) {
+      closeMenuWithAnimation();
+    } else {
+      setIsMenuOpen(true);
+    }
   };
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      setIsMenuOpen(false);
-
-      setTimeout(() => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset;
-        const offsetY = id === 'home' ? offsetPosition - 60 : offsetPosition;
-
-        window.scrollTo({
-          top: offsetY,
-          behavior: 'smooth',
-        });
-      }, 10);
+      closeMenuWithAnimation(() => {
+        const offsetY = element.getBoundingClientRect().top + window.pageYOffset - 30;
+        window.scrollTo({ top: offsetY, behavior: 'smooth' });
+      });
     }
   };
+
+  // El menú se renderiza si está abierto o animando la salida
+  const showMenu = isMenuOpen || isAnimatingOut;
 
   return (
     <>
@@ -68,62 +79,63 @@ const Menu = ({ activeSection, sectionColor = { bg: 'var(--blancolow)', text: 'v
         </button>
       </header>
 
-      <nav
-        className={`header__nav ${isMenuOpen ? 'header__nav-active' : ''}`}
-        style={navStyle}
-        inert={isMenuOpen ? undefined : true}
-      >
-        <ul className="header__nav-list">
-          <li className="header__nav-item">
-            <a className="header__nav-link" href="#home" onClick={(e) => handleNavClick(e, 'home')}>
-              Inicio
-            </a>
-          </li>
-
-          <li className="header__nav-item">
-            <a className="header__nav-link" href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>
-              Proyectos
-            </a>
-          </li>
-
-          <li className="header__nav-item">
-            <a className="header__nav-link" href="#bio" onClick={(e) => handleNavClick(e, 'about')}>
-              Biografía
-            </a>
-          </li>
-
-          <li className="header__nav-item">
-            <a className="header__nav-link" href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>
-              Contacto
-            </a>
-          </li>
-        </ul>
-        <footer className="header__footer">
-          <p className="header__footer-copy">Alejandro Goscu © 2025</p>
-          <ul className="header__footer-list">
-            <li className="header__footer-item">
-              <a
-                className="header__footer-link"
-                href="https://github.com/alejandrogoscu"
-                rel="noreferrer"
-                target="_blank"
-              >
-                GitHub
+      {showMenu && (
+        <nav
+          className={`header__nav${isMenuOpen ? ' header__nav-active' : ''}${
+            isAnimatingOut ? ' header__nav-animating-out' : ''
+          }`}
+          style={navStyle}
+          inert={isMenuOpen ? undefined : true}
+        >
+          <ul className="header__nav-list">
+            <li className="header__nav-item">
+              <a className="header__nav-link" href="#home" onClick={(e) => handleNavClick(e, 'home')}>
+                Inicio
               </a>
             </li>
-            <li className="header__footer-item">
-              <a
-                className="header__footer-link"
-                href="https://www.linkedin.com/in/alejandrogoscu/"
-                rel="noreferrer"
-                target="_blank"
-              >
-                LinkedIn
+            <li className="header__nav-item">
+              <a className="header__nav-link" href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>
+                Proyectos
+              </a>
+            </li>
+            <li className="header__nav-item">
+              <a className="header__nav-link" href="#bio" onClick={(e) => handleNavClick(e, 'about')}>
+                Biografía
+              </a>
+            </li>
+            <li className="header__nav-item">
+              <a className="header__nav-link" href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>
+                Contacto
               </a>
             </li>
           </ul>
-        </footer>
-      </nav>
+          <footer className="header__footer">
+            <p className="header__footer-copy">Alejandro Goscu © 2025</p>
+            <ul className="header__footer-list">
+              <li className="header__footer-item">
+                <a
+                  className="header__footer-link"
+                  href="https://github.com/alejandrogoscu"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li className="header__footer-item">
+                <a
+                  className="header__footer-link"
+                  href="https://www.linkedin.com/in/alejandrogoscu/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </footer>
+        </nav>
+      )}
     </>
   );
 };
