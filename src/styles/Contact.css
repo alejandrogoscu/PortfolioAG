@@ -76,6 +76,20 @@
   margin-bottom: 3.6rem;
 }
 
+.contact__char-counter {
+  min-height: 20px;
+  margin-top: 4px;
+  margin-right: 2px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--negrolow);
+  font-family: var(--font-title);
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
 .contact__button-container {
   grid-area: button-container;
   display: flex;

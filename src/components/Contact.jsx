@@ -25,6 +25,8 @@ const Contact = () => {
     threshold: 0.2,
   });
 
+  const MAX_LENGTH = 200;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -122,7 +124,7 @@ const Contact = () => {
 
             <label className="contact__label contact__message">
               <textarea
-                maxLength="180"
+                maxLength={MAX_LENGTH}
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
@@ -130,6 +132,9 @@ const Contact = () => {
                 required
                 disabled={status.submitting}
               />
+              <div className="contact__char-counter">
+                {formData.message.length} / {MAX_LENGTH}
+              </div>
             </label>
 
             <div className="contact__button-container">
