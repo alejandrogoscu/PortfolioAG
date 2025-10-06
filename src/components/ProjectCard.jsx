@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import LogoLoop from './LogoLoop';
 import '../styles/ProjectCard.css';
 
 const ProjectCard = ({ project }) => {
@@ -49,6 +50,19 @@ const ProjectCard = ({ project }) => {
     return icon;
   };
 
+  const logoItems = project.technologies.map((tech, index) => ({
+    node: (
+      <i
+        className={getIconClass(tech.icon, index)}
+        onMouseEnter={() => handleTechMouseEnter(index)}
+        onMouseLeave={() => handleTechMouseLeave(index)}
+        aria-label={tech.name}
+        title={tech.name}
+      />
+    ),
+    ariaLabel: tech.name,
+  }));
+
   return (
     <>
       <div className="projectCard__container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -75,18 +89,18 @@ const ProjectCard = ({ project }) => {
 
         <p className="projectCard__description">{project.description}</p>
 
-        <div className="projectCard__technologies">
-          {project.technologies.map((tech, index) => (
-            <div
-              className="projectCard__tech"
-              key={index}
-              onMouseEnter={() => handleTechMouseEnter(index)}
-              onMouseLeave={() => handleTechMouseLeave(index)}
-            >
-              <i className={getIconClass(tech.icon, index)}></i>
-            </div>
-          ))}
-        </div>
+        <LogoLoop
+          logos={logoItems}
+          logoHeight={32}
+          gap={24}
+          speed={40}
+          fadeOut
+          fadeOutColor="var(--blancolow)"
+          pauseOnHover={true}
+          scaleOnHover={true}
+          ariaLabel="Tecnologías usadas"
+          className="projectCard__logoLoop"
+        />
 
         <div className="projectCard__links">
           <a

@@ -122,12 +122,13 @@
   &::after {
     content: '';
     position: absolute;
-    top: -8px;
-    width: 100%;
-    left: 0;
+    top: -2px;
+    left: 50%;
+    width: 65%;
     height: 2px;
-    background-color: var(--negrolow);
-    transform: none;
+    background-color: var(--negro);
+    transform: translateX(-50%);
+    transition: width 0.2s ease;
   }
 
   &:hover {
@@ -136,6 +137,10 @@
     &::after {
       background-color: var(--negro);
     }
+  }
+
+  &:hover::after {
+    width: calc(110%);
   }
 
   &:active {

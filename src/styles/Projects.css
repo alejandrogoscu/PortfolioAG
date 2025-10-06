@@ -25,15 +25,15 @@
 }
 
 .projects__grid {
-  width: 90%;
-  max-width: 1400px;
+  width: 80%;
+  max-width: 1000px;
   margin: 0 auto;
   margin-top: 3rem;
   /* margin-bottom: 50px; */
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 0.7rem;
   justify-content: center;
 
   opacity: 0;

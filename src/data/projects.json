@@ -25,6 +25,10 @@
       {
         "name": "Node.js",
         "icon": "devicon-nodejs-plain-wordmark"
+      },
+      {
+        "name": "Vercel",
+        "icon": "devicon-vercel-original-wordmark"
       }
     ],
     "githubUrl": "https://github.com/alejandrogoscu/mercatGO",
