@@ -1,5 +1,5 @@
 .home__container {
-  min-height: calc(100dvh - 60px);
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;

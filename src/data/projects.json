@@ -33,5 +33,40 @@
     ],
     "githubUrl": "https://github.com/alejandrogoscu/mercatGO",
     "liveUrl": "https://mercatgo.vercel.app/"
+  },
+  {
+    "id": 2,
+    "title": "PabloLloret",
+    "description": "Un portafolio moderno y full stack para Pablo Lloret, un editor de video profesional. Cuenta con un Dashboard de administración para el editor.",
+    "videoSrc": "pabloLloretExample.webm",
+    "imageSrc": "pabloLloretimg.webp",
+    "technologies": [
+      {
+        "name": "HTML5",
+        "icon": "devicon-html5-plain-wordmark"
+      },
+      {
+        "name": "CSS3",
+        "icon": "devicon-css3-plain-wordmark"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "devicon-javascript-plain"
+      },
+      {
+        "name": "React",
+        "icon": "devicon-react-original-wordmark"
+      },
+      {
+        "name": "Node.js",
+        "icon": "devicon-nodejs-plain-wordmark"
+      },
+      {
+        "name": "Vercel",
+        "icon": "devicon-vercel-original-wordmark"
+      }
+    ],
+    "githubUrl": "https://github.com/alejandrogoscu/PabloLloretPortfolio",
+    "liveUrl": "https://pablolloretportfolio.vercel.app/"
   }
 ]
