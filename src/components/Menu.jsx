@@ -84,7 +84,12 @@ const Menu = ({ activeSection, sectionColor = { bg: 'var(--blancolow)', text: 'v
 
   return (
     <>
-      <header className={`header__menu ${isMenuOpen ? 'header__menu-active' : ''}`} style={menuStyle}>
+      <header
+        className={`header__menu ${isMenuOpen ? 'header__menu-active' : ''} ${
+          isAnimatingOut ? 'header__menu-animating-out' : ''
+        } `}
+        style={menuStyle}
+      >
         <button
           className={`header__button ${isMenuOpen ? 'header__button-active' : ''}`}
           onClick={toggleMenu}

@@ -11,7 +11,7 @@
   align-items: center;
   overflow: hidden;
   background-color: var(--menu-default-bg, var(--blancolow));
-  transition: color 0.6s ease, background-color 0.6s ease;
+  transition: color 0.4s ease, background-color 0.4s ease;
 }
 
 .header__menu::before {
@@ -23,13 +23,16 @@
   bottom: 0;
   background-color: var(--menu-bg);
   transform: translateX(100%);
-  transition: transform 0.6s ease-in-out;
+  transition: none;
   z-index: -1;
 }
 
 .header__menu-active::before {
-  transform: translateX(0);
   animation: headerBgIn 0.6s ease-in-out forwards;
+}
+
+.header__menu.header__menu-animating-out::before {
+  animation: headerBgOut 0.4s ease-in-out forwards;
 }
 
 /* - - - - - -  HEADER BUTTON Styles - - - - - - */
@@ -42,7 +45,7 @@
   font-size: 1.4em;
   font-weight: 400;
   position: relative;
-  transition: all 0.1s linear;
+  transition: color 0.3s ease;
   z-index: 1;
 
   &:hover {
@@ -61,6 +64,7 @@
   left: 50%;
   transform: translate(-50%);
   background-color: currentColor;
+  transition: background-color 0.3s ease;
 }
 
 /* - - - - - -  NAVIGATION Styles - - - - - - */
@@ -85,7 +89,7 @@
   transform: translateX(60px);
   pointer-events: none;
 
-  transition: background-color 0.6s ease, color 0.6s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .header__nav-active {
@@ -126,6 +130,7 @@
   height: 2px;
   transform: translateX(-50%);
   background-color: currentColor;
+  transition: background-color 0.3s ease;
 }
 
 .header__nav-link {
@@ -168,10 +173,19 @@
 /* --- ANIMACIONES MENU --- */
 @keyframes headerBgIn {
   from {
-    transform: translateX(60px);
+    transform: translateX(100%);
   }
   to {
     transform: translateX(0);
+  }
+}
+
+@keyframes headerBgOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
   }
 }
 
