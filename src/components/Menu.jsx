@@ -9,26 +9,38 @@ const Menu = ({ activeSection, sectionColor = { bg: 'var(--blancolow)', text: 'v
   const [menuStyle, setMenuStyle] = useState({});
   const [navStyle, setNavStyle] = useState({});
 
+  // Función para normalizar colores RGB a variables CSS
+  const normalizeColor = (colorObj) => {
+    const rgbToVar = {
+      'rgb(255, 254, 227)': 'var(--blancolow)',
+      'rgb(0, 0, 0)': 'var(--negro)',
+    };
+
+    return {
+      bg: rgbToVar[colorObj.bg] || colorObj.bg,
+      text: rgbToVar[colorObj.text] || colorObj.text,
+    };
+  };
+
   // Función para invertir los colores
   const getComplementaryColors = (color) => {
+    const normalized = normalizeColor(color);
     const colorMap = {
       'var(--blancolow)': { bg: 'var(--negro)', text: 'var(--blancolow)' },
       'var(--negro)': { bg: 'var(--blancolow)', text: 'var(--negro)' },
-      '#fffee3': { bg: '#000', text: '#fffee3' },
-      '#000': { bg: '#fffee3', text: '#000' },
     };
 
-    return colorMap[color.bg] || { bg: 'var(--negro)', text: 'var(--blancolow)' };
+    return colorMap[normalized.bg] || { bg: 'var(--negro)', text: 'var(--blancolow)' };
   };
 
   useEffect(() => {
     if (sectionColor) {
-      // Cuando el menú está abierto, usa colores complementarios
-      const colors = isMenuOpen ? getComplementaryColors(sectionColor) : sectionColor;
+      const normalized = normalizeColor(sectionColor);
+      const colors = isMenuOpen ? getComplementaryColors(sectionColor) : normalized;
 
       setMenuStyle({
         '--menu-bg': colors.bg,
-        '--menu-default-bg': sectionColor.bg,
+        '--menu-default-bg': normalized.bg,
         color: colors.text,
       });
 

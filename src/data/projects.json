@@ -68,5 +68,48 @@
     ],
     "githubUrl": "https://github.com/alejandrogoscu/PabloLloretPortfolio",
     "liveUrl": "https://pablolloretportfolio.vercel.app/"
+  },
+  {
+    "id": 3,
+    "title": "PomodoRise",
+    "description": "Aplicación para ayudarte a aumentar tu productividad utilizando la técnica Pomodoro, gestión de tareas y gamificación del progreso personal.",
+    "videoSrc": "pomodoriseExample.webm",
+    "imageSrc": "pomodoriseimg.webp",
+    "technologies": [
+      {
+        "name": "HTML5",
+        "icon": "devicon-html5-plain-wordmark"
+      },
+      {
+        "name": "CSS3",
+        "icon": "devicon-css3-plain-wordmark"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "devicon-javascript-plain"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "devicon-typescript-plain"
+      },
+      {
+        "name": "React",
+        "icon": "devicon-react-original-wordmark"
+      },
+      {
+        "name": "Node.js",
+        "icon": "devicon-nodejs-plain-wordmark"
+      },
+      {
+        "name": "Docker",
+        "icon": "devicon-docker-plain"
+      },
+      {
+        "name": "Vercel",
+        "icon": "devicon-vercel-original-wordmark"
+      }
+    ],
+    "githubUrl": "https://github.com/alejandrogoscu/pomodorise",
+    "liveUrl": "https://pomodorise.vercel.app"
   }
 ]

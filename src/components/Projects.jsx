@@ -19,9 +19,11 @@ const Projects = () => {
           Proyectos
         </h1>
         <div className={`projects__grid ${isGridVisible ? 'projects__grid--visible' : ''}`} ref={gridRef}>
-          {ProjectsData.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          {ProjectsData.slice()
+            .sort((a, b) => b.id - a.id)
+            .map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
         </div>
       </section>
     </>

@@ -16,26 +16,29 @@ const Layout = ({ children }) => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'projects', 'about', 'contact'];
-      const scrollPosition = window.scrollY + 200; // Offset para activar antes
+      const threshold = 60;
 
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
-            setSectionColor(sectionColors[sectionId]);
+          const rect = element.getBoundingClientRect();
+          // Cambiar cuando el threshold cruza dentro de la sección
+          if (rect.top <= threshold && rect.bottom >= threshold) {
+            if (activeSection !== sectionId) {
+              setActiveSection(sectionId);
+              setSectionColor(sectionColors[sectionId]);
+            }
             break;
           }
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Llamada inicial
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [activeSection]);
 
   return (
     <>
